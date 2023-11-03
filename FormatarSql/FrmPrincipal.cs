@@ -16,8 +16,10 @@ namespace FormatarSql
 
             try
             {
+                LblFormatando.Text = "Formatação em andamento...";
                 ResultadoApi resultadoApi = await ApiFormatarSql.FormatarSql(sbSQL);
                 RTxtSqlFormatado.Text = resultadoApi.Result;
+                LblFormatando.Text = "Formatação concluida...";
             }
             catch (Exception ex)
             {

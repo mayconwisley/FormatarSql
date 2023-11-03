@@ -35,6 +35,7 @@
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
             textBox1 = new TextBox();
+            LblFormatando = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -104,11 +105,21 @@
             textBox1.TabIndex = 4;
             textBox1.Text = "API Utilizada do site: https://sqlformat.org/api/";
             // 
+            // LblFormatando
+            // 
+            LblFormatando.AutoSize = true;
+            LblFormatando.Location = new Point(12, 307);
+            LblFormatando.Name = "LblFormatando";
+            LblFormatando.Size = new Size(16, 15);
+            LblFormatando.TabIndex = 5;
+            LblFormatando.Text = "...";
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(911, 638);
+            Controls.Add(LblFormatando);
             Controls.Add(textBox1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -133,5 +144,6 @@
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private TextBox textBox1;
+        private Label LblFormatando;
     }
 }

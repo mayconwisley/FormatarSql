@@ -14,7 +14,7 @@ public class ApiFormatarSql
         {
             HttpClient client = new()
             {
-                BaseAddress = new Uri("https://sqlformat.org/")
+                BaseAddress = new Uri("https://sqlformat.org/"),
             };
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -32,12 +32,16 @@ public class ApiFormatarSql
             if (response.IsSuccessStatusCode)
             {
                 var responseContent = await response.Content.ReadAsStreamAsync();
-                var resultadoApi = await JsonSerializer.DeserializeAsync<ResultadoApi>(responseContent, new JsonSerializerOptions { PropertyNameCaseInsensitive = true});
+                var resultadoApi = await JsonSerializer.DeserializeAsync<ResultadoApi>(responseContent, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
                 if (resultadoApi is not null)
                 {
                     return resultadoApi;
                 }
+            }
+            else
+            {
+                throw new Exception($"Erro da solicitação HTTP: {response.StatusCode}");
             }
             return new();
         }
