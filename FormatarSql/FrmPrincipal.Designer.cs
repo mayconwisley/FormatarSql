@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             RTxtSql = new RichTextBox();
             RTxtSqlFormatado = new RichTextBox();
             BtnFormatarSql = new Button();
@@ -113,6 +114,7 @@
             Controls.Add(groupBox1);
             Controls.Add(BtnFormatarSql);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "FrmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
