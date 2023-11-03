@@ -22,7 +22,8 @@ public class ApiFormatarSql
             var content = new FormUrlEncodedContent(new[]
             {
                 new KeyValuePair<string, string>("sql", stringBuilder.ToString()),
-                new KeyValuePair<string, string>("indent_width","4")
+                new KeyValuePair<string, string>("indent_width","4"),
+                new KeyValuePair<string, string>("keyword_case","upper")
 
             });
 
