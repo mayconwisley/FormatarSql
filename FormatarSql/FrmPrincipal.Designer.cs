@@ -36,6 +36,7 @@
             groupBox2 = new GroupBox();
             textBox1 = new TextBox();
             LblFormatando = new Label();
+            BtnCopiarSQLFormatado = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -59,6 +60,7 @@
             RTxtSqlFormatado.Size = new Size(878, 237);
             RTxtSqlFormatado.TabIndex = 0;
             RTxtSqlFormatado.Text = "";
+            RTxtSqlFormatado.TextChanged += RTxtSqlFormatado_TextChanged;
             // 
             // BtnFormatarSql
             // 
@@ -114,6 +116,22 @@
             LblFormatando.TabIndex = 5;
             LblFormatando.Text = "...";
             // 
+            // BtnCopiarSQLFormatado
+            // 
+            BtnCopiarSQLFormatado.Enabled = false;
+            BtnCopiarSQLFormatado.FlatAppearance.BorderColor = Color.Teal;
+            BtnCopiarSQLFormatado.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 64, 64);
+            BtnCopiarSQLFormatado.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 192, 192);
+            BtnCopiarSQLFormatado.FlatStyle = FlatStyle.Flat;
+            BtnCopiarSQLFormatado.Font = new Font("Segoe UI", 8F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnCopiarSQLFormatado.Location = new Point(667, 602);
+            BtnCopiarSQLFormatado.Name = "BtnCopiarSQLFormatado";
+            BtnCopiarSQLFormatado.Size = new Size(232, 26);
+            BtnCopiarSQLFormatado.TabIndex = 1;
+            BtnCopiarSQLFormatado.Text = "Copiar SQL Formatado";
+            BtnCopiarSQLFormatado.UseVisualStyleBackColor = true;
+            BtnCopiarSQLFormatado.Click += BtnCopiarSQLFormatado_Click;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -123,6 +141,7 @@
             Controls.Add(textBox1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            Controls.Add(BtnCopiarSQLFormatado);
             Controls.Add(BtnFormatarSql);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -145,5 +164,6 @@
         private GroupBox groupBox2;
         private TextBox textBox1;
         private Label LblFormatando;
+        private Button BtnCopiarSQLFormatado;
     }
 }

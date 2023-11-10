@@ -12,7 +12,10 @@ namespace FormatarSql
         private async void BtnFormatarSql_Click(object sender, EventArgs e)
         {
             StringBuilder sbSQL = new();
-            sbSQL.Append(RTxtSql.Text);
+            sbSQL.Append(RTxtSql.Text
+                        .Replace("\\", "")
+                        .Replace("\"", "")
+                        .Replace(";", ""));
 
             try
             {
@@ -36,6 +39,26 @@ namespace FormatarSql
             else
             {
                 BtnFormatarSql.Enabled = false;
+            }
+        }
+
+        private void BtnCopiarSQLFormatado_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(RTxtSqlFormatado.Text))
+            {
+                Clipboard.SetText(RTxtSqlFormatado.Text);
+            }
+        }
+
+        private void RTxtSqlFormatado_TextChanged(object sender, EventArgs e)
+        {
+            if (RTxtSqlFormatado.TextLength > 0)
+            {
+                BtnCopiarSQLFormatado.Enabled = true;
+            }
+            else
+            {
+                BtnCopiarSQLFormatado.Enabled = false;
             }
         }
     }
